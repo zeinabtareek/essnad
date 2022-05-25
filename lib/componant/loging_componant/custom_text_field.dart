@@ -1,0 +1,99 @@
+ import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../constant.dart';
+
+
+class CustomTextField extends StatelessWidget {
+  final String ?label;
+  final Function(String value) ?onChanged;
+   final String ?errorLabel;
+  final TextInputType? type;
+  final TextEditingController ?controller;
+  final Function() ?onTap;
+    final bool ?isPassword;
+  final Color? errorColor;
+   final String ?hint;
+  final Color ?color;
+  final Widget icon;
+
+  CustomTextField(
+
+  {
+ this.label, this.onChanged,
+     this.errorLabel,
+    this.type,
+    this.controller,
+    this.onTap,
+     this.isPassword,
+    this.errorColor,
+    this.hint,
+    this.color,
+     required this.icon
+  });
+
+  @override
+  Widget build(BuildContext context) {
+     return  Container(
+           margin: EdgeInsets.symmetric
+             (horizontal: 20.0.w ,vertical:  0.0.h),
+          height: 70.h,
+          width: double.infinity,
+          decoration: getBoxShadow(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+            Expanded(
+              child: TextFormField(
+                   textCapitalization: TextCapitalization.words,
+                  cursorColor: K.grayColor.withOpacity(.2),
+                  style: TextStyle(color: Colors.white),                              decoration: getInoutDecoration(
+                label,
+                  IconButton(
+                    icon: icon ,
+                  padding: EdgeInsets.only(bottom: 30.h),
+                  color: K.whiteColor,
+                    onPressed: onTap,
+                ),
+              ),onChanged: (value) {
+                    print(value);
+                  }
+              ),
+            ),
+          ])
+     );
+  }
+ getBoxShadow() {
+   return BoxDecoration(
+       borderRadius: BorderRadius.circular(5.0),
+       color: K.splashStackColor.withOpacity(.5),
+       border: Border.all(color: K.whiteColor.withOpacity(.3))
+   );
+ }
+
+ getInoutDecoration(hint, icon) {
+   return InputDecoration(
+     enabledBorder: const UnderlineInputBorder(
+         borderSide: BorderSide.none
+     ),
+     focusedBorder: UnderlineInputBorder(
+       borderSide: BorderSide(color: K.secColorFirstButton),
+     ),
+
+     icon: Container(
+       margin:  EdgeInsets.symmetric
+         (horizontal: 10.0.w ,vertical:  10.0.h),
+       width: 10.w,
+       height: 20.h,
+       child: icon,
+
+     ),
+     hintText: hint,
+     hintStyle: TextStyle(fontSize: 18.0.sp, color:K.whiteColor.withOpacity(.3)),
+     labelStyle: TextStyle(color: Colors.white),
+     contentPadding: EdgeInsets.only(left: 15.0.w, top: 0.0,bottom: 20.h),
+
+   );
+ }}
