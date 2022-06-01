@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Container(
-                    height: 200.h,
+                    // height: 200.h,
                     width: K.width,
                     padding: EdgeInsets.symmetric(horizontal: 10.w),
                     decoration: BoxDecoration(
@@ -65,11 +65,12 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        UserProfileImage(image: 'assets/images/person.png'),
                         K.sizedBoxH,
+
+                        UserProfileImage(image: 'assets/images/person.png'),
                         TextHomeScreen(text: 'مرشد جابر نواف مكي',size: 20,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.center,
                           children: [
                             Text(
                               ' مكه المكرمه',
@@ -97,8 +98,7 @@ class HomeScreen extends StatelessWidget {
                     text: 'هل تبحث عن شئ ؟',
                   ),
                   K.sizedBoxH,
-                  K.sizedBoxH,
-                  TextHomeScreen(
+                   TextHomeScreen(
                     size: 20,
                     text: 'المخالفات المضافه حديثا ',
                   ),

@@ -19,10 +19,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // VisualDensity.adaptivePlatformDensity;
-    // SystemChrome.setPreferredOrientations([
-    //   DeviceOrientation.portraitUp,
-    // ]);
 return
   MediaQuery(
       data:  MediaQueryData(),
