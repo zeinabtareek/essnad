@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
     ];
     final _controller = Get.put(HomeController());
     return Scaffold(
-      backgroundColor:K.whiteColor,
+      backgroundColor:K.mainColor,
         body: Obx(() => Center(
               child: body.elementAt(_controller.selectIndex),
             )),

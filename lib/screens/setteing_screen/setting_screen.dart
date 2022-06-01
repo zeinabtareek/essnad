@@ -28,20 +28,20 @@ class SettingScreen extends StatelessWidget {
            IconButton(onPressed: (){Get.back();}, icon: const Icon(Icons.arrow_forward_ios, color: K.whiteColor,),),
          ],
        ),
-       body: Container(
-         width: K.width,
-         height: K.height,
-         decoration: const BoxDecoration(
-           gradient: LinearGradient(
-             begin: Alignment.bottomLeft,
-             end: Alignment.bottomRight,
-             colors: [
-               K.mainColor,
-               K.secondaryColor,
-             ],
+       body: SingleChildScrollView(
+         child: Container(
+           width: K.width,
+           height: K.height,
+           decoration: const BoxDecoration(
+             gradient: LinearGradient(
+               begin: Alignment.bottomLeft,
+               end: Alignment.bottomRight,
+               colors: [
+                 K.mainColor,
+                 K.secondaryColor,
+               ],
+             ),
            ),
-         ),
-         child: SingleChildScrollView(
            child: Wrap(
              crossAxisAlignment: WrapCrossAlignment.end,
              alignment: WrapAlignment.center,
@@ -68,54 +68,52 @@ class SettingScreen extends StatelessWidget {
                          topLeft: Radius.circular(25),
                          topRight: Radius.circular(25),
                        )),
-                   child: SingleChildScrollView(
-                       child:Column(
-                         children: [
-                           K.sizedBoxH,
-                           Text('إعدادات الحساب',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.sp, color: K.blackTypingColor),),
-                           K.sizedBoxH,
-                           ListView.builder(
-                                   itemCount:controller.settingsLabels.length,
-                                   shrinkWrap: true,
-                                   padding: EdgeInsets.zero,
-                                   itemBuilder: (ctx, index) => FixedListTile(
-                                     onTap: () {
-                                       if (index == 0) {
-                                         // Get.to(OrderHistory());
-                                       } else if (index == 1) {
-                                         // Get.to(PaymentScreen());
-                                       } else if (index == 2) {
-                                         Get.to(ChangePassScreen());
-                                       } else if (index == 3) {}
-                                     },
-                                     title: controller.settingsLabels[index],
-                                     // subTitle: controller.supportLabels[index],
-                                     iconLeading:  Icons.arrow_back_ios,
-                                   )),
-                           K.sizedBoxH,
-                           K.sizedBoxH,
-                           K.sizedBoxH,
-                           Text('الدعم',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.sp, color: K.blackTypingColor),),
-                           ListView.builder(
-                                   itemCount:controller.supportLabels.length,
-                                   shrinkWrap: true,
-                                   padding: EdgeInsets.zero,
-                                   itemBuilder: (ctx, index) => FixedListTile(
-                                     onTap: () {
-                                       if (index == 0) {
-                                         // Get.to(OrderHistory());
-                                       } else if (index == 1) {
-                                         // Get.to(PaymentScreen());
-                                       } else if (index == 2) {}
-                                     },
-                                     title: controller.supportLabels[index],
-                                     // subTitle: controller.supportLabels[index],
-                                     iconLeading:  Icons.arrow_back_ios,
-                                   )),
+                   child: Column(
+                     children: [
+                       K.sizedBoxH,
+                       Text('إعدادات الحساب',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.sp, color: K.blackTypingColor),),
+                       K.sizedBoxH,
+                       ListView.builder(
+                         physics: const ClampingScrollPhysics(),
+                               itemCount:controller.settingsLabels.length,
+                               shrinkWrap: true,
+                               padding: EdgeInsets.zero,
+                               itemBuilder: (ctx, index) => FixedListTile(
+                                 onTap: () {
+                                   if (index == 0) {
+                                     // Get.to(OrderHistory());
+                                   } else if (index == 1) {
+                                     // Get.to(PaymentScreen());
+                                   } else if (index == 2) {
+                                     Get.to(ChangePassScreen());
+                                   } else if (index == 3) {}
+                                 },
+                                 title: controller.settingsLabels[index],
+                                 // subTitle: controller.supportLabels[index],
+                                 iconLeading:  Icons.arrow_back_ios,
+                               )),
+
+                       Text('الدعم',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.sp, color: K.blackTypingColor),),
+                       ListView.builder(
+                         physics: ClampingScrollPhysics(),
+                               itemCount:controller.supportLabels.length,
+                               shrinkWrap: true,
+                               padding: EdgeInsets.zero,
+                               itemBuilder: (ctx, index) => FixedListTile(
+                                 onTap: () {
+                                   if (index == 0) {
+                                     // Get.to(OrderHistory());
+                                   } else if (index == 1) {
+                                     // Get.to(PaymentScreen());
+                                   } else if (index == 2) {}
+                                 },
+                                 title: controller.supportLabels[index],
+                                 // subTitle: controller.supportLabels[index],
+                                 iconLeading:  Icons.arrow_back_ios,
+                               )),
 
 
-                         ],
-                       )
+                     ],
                    ),
                  ),
                ),
