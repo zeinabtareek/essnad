@@ -8,6 +8,7 @@ class K {
   static const secondaryColor = Color(0xff34af80);
   static const whiteColor = Color(0xffFAFAFA);
   static const blackTypingColor = Color(0xff555151);
+
   static const kBackGroundColor= Color(0xFFA9C4BF);
   static const KpostBackground= Color(0xff31323B);
   static const KFirstPostColor= Color(0xff404550);
