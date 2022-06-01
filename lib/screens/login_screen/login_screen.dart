@@ -16,41 +16,37 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final _controller = Get.put(LoginController());
     return Scaffold(
-        backgroundColor: Colors.transparent,
-        body:Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.bottomLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  K.mainColor,
-                  K.secondaryColor,
-                ],
-              )
-          ),
-          child:  Wrap(
-            crossAxisAlignment: WrapCrossAlignment.end,
-            alignment: WrapAlignment.center,
-            children: [
-              K.sizedBoxH,
-              SizedBox(height: 150.h,),
-              LoginCustomText(size: 30.sp, text: ' تسجيل الدخول',),
-              Padding(
-                padding: EdgeInsets.only(top: 70.h, right: 0, left: 0, bottom: 0),
-                child: Container(
-                  height: K.height,
-                  width: K.width,
-                  padding: EdgeInsets.only(top: 40.h, right: 30.w, left: 30.w, bottom: 0),
-                  decoration: const BoxDecoration(
-                      color: K.whiteColor,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25),
-                        topRight: Radius.circular(25),
-                      )),
-                  child: SingleChildScrollView(
+      backgroundColor: K.whiteColor,
+        body:SingleChildScrollView(
+          child: Container(
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    K.mainColor,
+                    K.secondaryColor,
+                  ],
+                )
+            ),
+            child:  Wrap(
+              crossAxisAlignment: WrapCrossAlignment.end,
+              alignment: WrapAlignment.center,
+              children: [
+                K.sizedBoxH,
+                SizedBox(height: 150.h,),
+                LoginCustomText(size: 30.sp, text: ' تسجيل الدخول',),
+                Padding(
+                  padding: EdgeInsets.only(top: 70.h, right: 0, left: 0, bottom: 0),
+                  child: Container(
+                    padding: EdgeInsets.only(top: 40.h, right: 30.w, left: 30.w, bottom: 0),
+                    decoration: const BoxDecoration(
+                        color: K.whiteColor,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25),
+                          topRight: Radius.circular(25),
+                        )),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         LoginLabel(
                           text: 'الاسم ',
@@ -90,14 +86,16 @@ class LoginScreen extends StatelessWidget {
                               },
                               label: "تسجيل الدخول",
                             ),
+
                           ),
                         ),
+                        K.sizedBoxH
                       ],
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         )
     );

@@ -1,4 +1,4 @@
-
+import 'package:b_app/screens/register_screen/register_screen.dart';
 import 'package:get/get.dart';
 
 import '../screens/add_violation_screen/add_news.dart';
@@ -16,23 +16,25 @@ import '../screens/splash_screen/splash_screen.dart';
 import '../screens/tasks_screen/tasks_screen.dart';
 import '../screens/tasks_types_screen/tasks_types_screen.dart';
 import 'app_route.dart';
+
 class AppScreens {
   static final screens = [
-     GetPage(name: AppRoutes.loginScreen, page: () => const LoginScreen()),
-     GetPage(name: AppRoutes.profileScreen, page: () =>   ProfileScreen()),
-     GetPage(name: AppRoutes.postScreen, page: () =>   PostScreen()),
-     GetPage(name: AppRoutes.home, page: () =>   const Home()),
-     GetPage(name: AppRoutes.mapScreen, page: () =>    MapScreen()),
-     GetPage(name: AppRoutes.missionScreen, page: () =>    MissionScreen()),
-     GetPage(name: AppRoutes.postScreen, page: () =>    PostScreen()),
-     GetPage(name: AppRoutes.settingScreen, page: () =>    SettingScreen()),
-     GetPage(name: AppRoutes.splashScreen, page: () =>    SplashScreen()),
-     GetPage(name: AppRoutes.tasksScreen, page: () =>    TasksScreen()),
-     GetPage(name: AppRoutes.tasksTypesScreen, page: () =>    TasksTypesScreen()),
-     GetPage(name: AppRoutes.homeScreen, page: () =>    HomeScreen()),
-     GetPage(name: AppRoutes.changePassScreen, page: () =>    ChangePassScreen()),
-     GetPage(name: AppRoutes.addNewsScreen, page: () =>    AddNewsScreen()),
-     GetPage(name: AppRoutes.addViolationScreen, page: () =>    AddViolationScreen()),
-
+    GetPage(name: AppRoutes.loginScreen, page: () => const LoginScreen()),
+    GetPage(name: AppRoutes.profileScreen, page: () => ProfileScreen()),
+    GetPage(name: AppRoutes.postScreen, page: () => PostScreen()),
+    GetPage(name: AppRoutes.home, page: () => const Home()),
+    GetPage(name: AppRoutes.mapScreen, page: () => MapScreen()),
+    GetPage(name: AppRoutes.missionScreen, page: () => MissionScreen()),
+    GetPage(name: AppRoutes.postScreen, page: () => PostScreen()),
+    GetPage(name: AppRoutes.settingScreen, page: () => SettingScreen()),
+    GetPage(name: AppRoutes.splashScreen, page: () => SplashScreen()),
+    GetPage(name: AppRoutes.tasksScreen, page: () => TasksScreen()),
+    GetPage(name: AppRoutes.tasksTypesScreen, page: () => TasksTypesScreen()),
+    GetPage(name: AppRoutes.homeScreen, page: () => HomeScreen()),
+    GetPage(name: AppRoutes.changePassScreen, page: () => ChangePassScreen()),
+    GetPage(name: AppRoutes.addNewsScreen, page: () => AddNewsScreen()),
+    GetPage(
+        name: AppRoutes.addViolationScreen, page: () => AddViolationScreen()),
+    GetPage(name: AppRoutes.registerScreen, page: () => RegisterScreen()),
   ];
 }

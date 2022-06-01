@@ -1,3 +1,4 @@
+import 'package:b_app/screens/register_screen/controller/register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -8,11 +9,12 @@ import '../../componant/loging_componant/login_custom_text.dart';
 import '../../constant.dart';
 import '../../routes/app_route.dart';
 
-class ChangePassScreen extends StatelessWidget {
-  const ChangePassScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(RegisterController());
     return Scaffold(
         backgroundColor: K.whiteColor,
         body: SingleChildScrollView(
@@ -40,7 +42,7 @@ class ChangePassScreen extends StatelessWidget {
                     const Spacer(),
                     LoginCustomText(
                       size: 30.sp,
-                      text: 'تغيير كلمه المرور',
+                      text: 'انشاء حساب',
                     ),
                     const Spacer(),
                     IconButton(
@@ -67,14 +69,14 @@ class ChangePassScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         LoginLabel(
-                          text: 'كلمه المرور القديمه',
-                          icon: Icons.lock,
+                          text: 'اسم المستخدم',
+                          icon: Icons.person,
                         ),
                         K.sizedBoxH,
                         CustomTextField(
                           // label: "Email",
                           type: TextInputType.emailAddress,
-                          icon: Icons.lock,
+                          // icon: Icons.email_outlined,
                           obSecure: false,
                           onchange: (v) {
                             // _controller.email.value = v;
@@ -90,25 +92,56 @@ class ChangePassScreen extends StatelessWidget {
                         CustomTextField(
                           // label: "Password",
                           type: TextInputType.phone,
-                          icon: Icons.lock_outline_rounded,
+                          // icon: Icons.lock_outline_rounded,
                           obSecure: true,
                           onchange: (v) {
                             print(v);
                           },
                         ),
                         LoginLabel(
-                          text: 'تأكيد كلمه المرور',
-                          icon: Icons.lock,
+                          text: 'البريد الالكترونى',
+                          icon: Icons.mail,
                         ),
                         K.sizedBoxH,
                         CustomTextField(
                           // label: "Password",
                           type: TextInputType.phone,
-                          icon: Icons.lock_outline_rounded,
-                          obSecure: true,
+                          // icon: Icons.lock_outline_rounded,
+                          obSecure: false,
                           onchange: (v) {
                             print(v);
                           },
+                        ),
+                        LoginLabel(
+                          text: 'رقم الهاتف',
+                          icon: Icons.phone,
+                        ),
+                        K.sizedBoxH,
+                        CustomTextField(
+                          // label: "Password",
+                          type: TextInputType.phone,
+                          // icon: Icons.lock_outline_rounded,
+                          obSecure: false,
+                          onchange: (v) {
+                            print(v);
+                          },
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(" الموافقة على الشروط والأحكام",
+                                style: TextStyle(
+                                    color: K.secColor3rdtButton,
+                                    fontSize: 16.sp)),
+                            Obx(() => Checkbox(
+                              activeColor: K.mainColor,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4)),
+                                value: controller.value.value,
+                                onChanged: (v) {
+                                  controller.checkBoxFun(v!);
+                                }))
+                          ],
                         ),
                         Center(
                           child: Padding(
@@ -118,7 +151,7 @@ class ChangePassScreen extends StatelessWidget {
                                 Get.toNamed(AppRoutes.home);
                                 // Get.toNamed(AppRoutes.postScreen);
                               },
-                              label: "تأكيد",
+                              label: "انشاء الحساب",
                             ),
                           ),
                         ),
