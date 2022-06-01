@@ -8,18 +8,21 @@ import 'package:get/get.dart';
 import 'constant.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  runApp(  MyApp());
+  VisualDensity.adaptivePlatformDensity;
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]).then( (_)=>   runApp(  MyApp())
+  );
 }
 
 class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VisualDensity.adaptivePlatformDensity;
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
+    // VisualDensity.adaptivePlatformDensity;
+    // SystemChrome.setPreferredOrientations([
+    //   DeviceOrientation.portraitUp,
+    // ]);
 return
   MediaQuery(
       data:  MediaQueryData(),
@@ -36,21 +39,5 @@ return
             ),
             ),
   );
-    // return MediaQuery(
-    //   data:   MediaQueryData(),
-    //   child: ScreenUtilInit(
-    //     designSize:   Size(428, 926),
-    //     builder: ( ) => GetMaterialApp(
-    //       debugShowCheckedModeBanner: false,
-    //       theme: ThemeData(
-    //         appBarTheme: const AppBarTheme(backgroundColor: K.kBackGroundColor),
-    //         scaffoldBackgroundColor: K.kBackGroundColor,
-    //       ),
-    //       //   home:Home(),
-    //       initialRoute: AppRoutes.homeScreen,
-    //       getPages: AppScreens.screens,
-    //     ),
-    //   ),
-    // );
   }
 }

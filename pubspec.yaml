@@ -52,6 +52,18 @@ dependencies:
   google_maps_flutter:
   dio:
   flutter_polyline_points:
+  flutter_launcher_icons:
+  flutter_launcher_name:
+
+
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo.jpeg"
+flutter_launcher_name:
+  name: "Essnad"
+
 
 dev_dependencies:
   flutter_test:
