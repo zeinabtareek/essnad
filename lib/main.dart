@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
             appBarTheme: const AppBarTheme(backgroundColor: K.kBackGroundColor),
             scaffoldBackgroundColor: K.kBackGroundColor,
           ),
-          initialRoute: AppRoutes.home,
+          initialRoute: AppRoutes.tasksScreen,
           getPages: AppScreens.screens,
         ),
       ),
