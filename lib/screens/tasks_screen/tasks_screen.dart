@@ -29,20 +29,20 @@ class TasksScreen extends StatelessWidget {
           K.sizedBoxW,
         ],
       ),
-      body: Container(
-        width: K.width,
-        height: K.height,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              K.mainColor,
-              K.secondaryColor,
-            ],
+      body: SingleChildScrollView(
+        child: Container(
+          width: K.width,
+          height: K.height,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                K.mainColor,
+                K.secondaryColor,
+              ],
+            ),
           ),
-        ),
-        child: SingleChildScrollView(
           child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.end,
             alignment: WrapAlignment.center,
@@ -69,9 +69,7 @@ class TasksScreen extends StatelessWidget {
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25),
                       )),
-                  child:  Wrap(
-                        children: [
-                          K.sizedBoxH,
+                  child:
                           ListView.builder(
                               physics: ClampingScrollPhysics(),
                               itemCount:9,
@@ -123,8 +121,7 @@ class TasksScreen extends StatelessWidget {
                                     ],
                                   )
                                 ),
-                              )),
-                        ],
+                              )
                       )
                   ),
                 ),
