@@ -14,9 +14,8 @@ class postCustomTextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // <--- SizedBox
       height: height.h,
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 5.h),
       decoration: BoxDecoration(
         color: K.whiteColor,
         borderRadius: const BorderRadius.all(Radius.circular(10.0)),
@@ -31,6 +30,7 @@ class postCustomTextFieldWidget extends StatelessWidget {
           filled: true,
           hintText: text.toString(),
           hintStyle: const TextStyle(
+            fontSize:16 ,
             color: K.grayColor,
           ),
           fillColor: K.whiteColor,

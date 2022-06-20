@@ -1,25 +1,27 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_dropdown/flutter_dropdown.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constant.dart';
-import '../screens/mission_include_screen/controller/controller.dart';
+import '../screens/add_new_mission_screen/controller/new_mission_controller.dart';
+import '../screens/mission_include_screen/controller/controller2.dart';
 
 class CustomDropDown extends StatelessWidget {
   dynamic initialValue;
   final Function(dynamic)? onchange;
+  bool? isaddNewMissionScreen=false;
+  Image ?icon;
 
     CustomDropDown({
     Key? key,
-    required this.controller,
+      this.controller,
     required this.initialValue,
+      this.icon,
     required this.onchange,
+      this.isaddNewMissionScreen,
   }) : super(key: key);
 
-  final MissionController controller;
+  final MissionController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -27,23 +29,21 @@ class CustomDropDown extends StatelessWidget {
       height: 70.h,
        margin: EdgeInsets.symmetric(
           horizontal: 0.0.w, vertical: 15.h),
-      padding: EdgeInsets.symmetric(
-          horizontal: 10.0.w, vertical: 10.h),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        border: Border.all(
-            color: K.mainColor,
-            style: BorderStyle.solid,
-            width: 2),
-      ),
-      child: DropDown<dynamic>(
-        items: controller.optionss,
-        showUnderline: false,
-        hint: Text("Select"),
-        initialValue: initialValue.toString(),
-        onChanged: onchange,
-        isCleared: controller.selectedOption.value == null,
-        isExpanded: true,
+      padding: K.fixedPadding,
+      decoration: K.TextFieldboxDecoration,
+      child:  DropDown<dynamic>(
+          items:
+          isaddNewMissionScreen!=true?
+          controller!.optionss:
+          controller!.AddNewMissionScreen,
+          showUnderline: false,
+          hint: Text("Select",),
+          icon: icon,
+          initialValue: initialValue.toString(),
+          onChanged: onchange,
+        isExpanded:true,
+          isCleared: controller!.selectedOption.value == null,
+
 
       ),
     );

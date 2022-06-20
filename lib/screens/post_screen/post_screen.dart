@@ -18,7 +18,7 @@ class PostScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.transparent, // remove color from appbar
+      backgroundColor: Colors.transparent,
       appBar: CustomAppBar(
         icon: null,
         isPassScreen: true,

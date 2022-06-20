@@ -5,9 +5,12 @@ class MissionController extends GetxController {
 
   Rx<List<dynamic>> selectedOptionList = Rx<List<dynamic>>([]);
   var selectedOption = ''.obs;
-  List<dynamic> options = ["المهمه ١", "المهمه ٢", "المهمه ٣", "المهمه ٤"];
+  bool isClicked=false;
+  List<dynamic> options =
+  ["المهمه ١", "المهمه ٢", "المهمه ٣", "المهمه ٤"];
   List<dynamic> optionss = ["التصنيف الرئيسي", "التصنيف الفرعي", "المهمه ٣", "المهمه ٤"];
-  // List<dynamic> title = ["التصنيف الرئيسي  ", "التصنيف الرئيسي  ", "التصنيف الرئيسي  " ] ;
+
+  List<dynamic> AddNewMissionScreen = ["فردي", "في محموعه", ];
 
 
 }

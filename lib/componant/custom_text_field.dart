@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constant.dart';
@@ -10,21 +11,21 @@ class CustomTextField extends StatelessWidget {
       this.icon,
       this.label,
       this.onchange,
-      this.type,
-      this.obSecure = false})
+       this.type,
+      this.obSecure = false,
+        this.inputFormatters})
       : super(key: key);
   final String? label;
   final IconData? icon;
   final TextEditingController? controller;
   final Function(String)? onchange;
   final bool? obSecure;
-  final TextInputType? type;
+  final   List<TextInputFormatter>?inputFormatters;
+   final TextInputType? type;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.zero,
-      child: SizedBox(
+    return  SizedBox(
         height: 49.h,
         child: TextField(
           keyboardType: type,
@@ -32,26 +33,26 @@ class CustomTextField extends StatelessWidget {
           onChanged: onchange,
           obscureText: obSecure!,
           cursorColor: K.blackTypingColor,
+          inputFormatters: inputFormatters,
           style: TextStyle(
               color: K.blackTypingColor, fontSize: 16.sp, fontFamily: "Raleway", fontWeight: FontWeight.w500),
           decoration: InputDecoration(
-            prefixIcon: Icon(icon, color: K.grayColor,size: 16.sp,),
+            // prefixIcon: Icon(ifIconExist==true?icon:null, color: K.grayColor,size: 16.sp,),
             labelText: label,
             labelStyle: TextStyle(
                 fontFamily: "Raleway",
-                fontSize: 16.sp,
+                fontSize: 21.sp,
                 fontWeight: FontWeight.w500,
                  color: const Color(0xff8E8E93)
             ),
             enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xffDADADA)),
             ),
-            focusedBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffDADADA)),
+            focusedBorder:  OutlineInputBorder(
+              borderSide: BorderSide(color: K.secondaryColor.withOpacity(.2)),
             ),
           ),
         ),
-      ),
     );
   }
 }

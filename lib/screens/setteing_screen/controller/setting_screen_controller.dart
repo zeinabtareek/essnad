@@ -10,6 +10,7 @@ class SettingController extends GetxController{
     'اللغه',
     'تحديث رقم الجوال',
     ' تغيير كلمه المرور',
+    ' تسجيل الخروج',
 
   ];
   final List<String> supportLabels = [

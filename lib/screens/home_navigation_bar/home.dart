@@ -1,12 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../constant.dart';
 import '../home_screen/home_screen.dart';
 import '../profile_screen/profile_screen.dart';
-import '../setteing_screen/setting_screen.dart';
-import '../tasks_screen/tasks_screen.dart';
+import '../tasks_slider_screen/tasks_slider_screen.dart';
 import 'controller/home_controller.dart';
 
 class Home extends StatelessWidget {
@@ -16,12 +14,13 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> body = [
       ProfileScreen(),
-      TasksScreen(),
       HomeScreen(),
+      // TasksScreen(),
+      TasksSliderScreen(),
     ];
     final _controller = Get.put(HomeController());
     return Scaffold(
-      backgroundColor:K.mainColor,
+      backgroundColor:K.whiteColor,
         body: Obx(() => Center(
               child: body.elementAt(_controller.selectIndex),
             )),
@@ -32,20 +31,33 @@ class Home extends StatelessWidget {
                 child: BottomNavigationBar(
                   items:     <BottomNavigationBarItem>[
                     BottomNavigationBarItem(
-                      icon: Icon(Icons.person,size: 35.sp,),
+                      icon:   Image.asset('assets/images/personIcon.png',
+                          height: 22,
+                          color: _controller.selectIndex == 0
+                              ? K.mainColor
+                              : K.mainColor.withOpacity(.8)),
                       label: 'حسابي',
                     ),
+
                     BottomNavigationBarItem(
-                      icon: Icon(Icons.menu,size: 35.sp,),
-                      label: 'المخالفات',
+                      icon:   Image.asset('assets/images/home.png',
+                          height: 25,
+                          color: _controller.selectIndex == 1
+                              ? K.mainColor
+                              : K.mainColor.withOpacity(.8)),
+                      label: 'اسناد'
                     ),
                     BottomNavigationBarItem(
-                      icon: Icon(Icons.home_outlined,size: 35.sp,),
-                      label: 'الرئيسيه'
+                      icon: Image.asset('assets/images/taskicon.png',
+                          height: 25,
+                          color: _controller.selectIndex == 2
+                              ? K.mainColor
+                              : K.mainColor.withOpacity(.8)),
+                      label: 'الخدمات',
                     ),
                   ],
                   selectedItemColor: K.mainColor,
-                  unselectedItemColor: K.whiteColor,
+                  unselectedItemColor: K.mainColor.withOpacity(.8),
                   backgroundColor:K.kBackGroundColor,
                   type: BottomNavigationBarType.fixed,
                   currentIndex: _controller.selectIndex,

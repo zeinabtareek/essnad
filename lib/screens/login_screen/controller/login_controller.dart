@@ -1,10 +1,18 @@
+import 'package:email_auth/email_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
+import '../../../routes/app_route.dart';
+import '../../../services/auth_services.dart';
 class LoginController extends GetxController {
-  // final _services = LoginServices();
+   final services=AuthServices();
+
   final _email = ''.obs;
   final _password = ''.obs;
-  final check = false.obs;
+  // final check = false.obs;
+   EmailAuth  emailAuth=EmailAuth(
+     sessionName: "Send OTP email",
+   );
 
   String get email => _email.value;
 
@@ -17,11 +25,63 @@ class LoginController extends GetxController {
   validPassword(String password) {
     _password.value = password;
   }
+   @override
+   void initState() {
+      emailAuth  ;
 
-  log(BuildContext context) async {
-    check.value = true;
-    // UserModel? user = await _services.login(email, password, context);
-    // AuthController.to.changeLoggedIn(true, user);
-    check.value = !check.value;
+      emailAuth.config(  remoteServerConfiguration);
+   }
+   var remoteServerConfiguration =
+   {"server" : "https://esnad.ibtikar-soft.com/",
+     "serverKey" : "UDujOQ"
+   };
+  log() async {
+    services.login(email.trim(), password.trim());
+  }
+
+
+
+void sendOTP()async{
+    // bool resultOfSendOtp=await emailAuth.sendOtp(
+    //   otpLength: 5,
+    //     recipientMail: email ,);
+    // if(resultOfSendOtp){
+    //   emailAuth.sessionName;
+    //    return print('otp send ${resultOfSendOtp}');
+    //
+    // }
+}
+void validateOtp()async{
+    // var res =await emailAuth.validateOtp(
+    //      userOtp: otp.value,
+    //   recipientMail: email.trim(),);
+    // if(res==true){
+    //   return print('otp verified');
+    // } else{
+    //   return print('otp  not verified');
+    //    }
+    }
+
+
+
+
+
+   final TextEditingController fieldOne = TextEditingController();
+   final TextEditingController fieldTwo = TextEditingController();
+   final TextEditingController fieldThree = TextEditingController();
+   final TextEditingController fieldFour = TextEditingController();
+   final otp=''.obs;
+   final wrongNum=false.obs;
+// final notEmpty=false.obs;
+
+  isNotEmpty( ){
+    if (fieldOne.text.isNotEmpty&&fieldTwo.text.isNotEmpty &&fieldFour.text.isNotEmpty &&fieldThree.text.isNotEmpty){
+      // Get.toNamed(AppRoutes.home);
+    } else{
+      wrongNum.value=true;
+      print('error');
+      // Get.toNamed(AppRoutes.splashScreen);
+    }
+    update();
   }
 }

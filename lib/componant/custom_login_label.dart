@@ -1,14 +1,18 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constant.dart';
 
 class LoginLabel extends StatelessWidget {
   String ?text;
+  // final String? icon;
+  Widget ? widget;
   final IconData? icon;
     LoginLabel({
     this.text,
     this.icon,
+    this.widget,
     Key? key,
   }) : super(key: key);
 
@@ -20,20 +24,11 @@ class LoginLabel extends StatelessWidget {
         Text('\n $text',
           textDirection: TextDirection.rtl,
           style:   TextStyle(color: K.mainColor,
-              fontSize: 20.sp, fontWeight: FontWeight.bold, height: 1),
+              fontSize: 20.sp, fontWeight: FontWeight.w400, height: 1),
         ),
-
-        // Text(text!,style: TextStyle(
-        //     fontFamily: "Raleway",
-        //     fontSize: 20.sp,
-        //     fontWeight: FontWeight.w600,
-        //     color: K.mainColor
-        // ),
-        // ),
-        Padding(
-          padding: const EdgeInsets.only(top: 15.0),
-          child: Icon(icon,color: K.mainColor,size: 25,),
-        ),
+          Padding(
+          padding: EdgeInsets.only(top: 15.0),
+          child: widget),
       ],
     );
   }

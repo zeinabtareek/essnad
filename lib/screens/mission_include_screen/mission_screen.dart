@@ -14,7 +14,7 @@ import '../../componant/loging_componant/login_custom_text.dart';
 import '../../componant/loging_componant/login_rich_text.dart';
 import '../../constant.dart';
 import '../../routes/app_route.dart';
-import 'controller/controller.dart';
+ import 'controller/controller2.dart';
 
 class MissionScreen extends StatelessWidget {
   @override
@@ -23,14 +23,6 @@ class MissionScreen extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.transparent, // remove color from appbar
-      appBar: CustomAppBar(
-        icon: null,
-        isPassScreen: true,
-        actions: [
-          IconButton(onPressed: (){Get.back();}, icon: const Icon(Icons.arrow_forward_ios, color: K.whiteColor,),),
-          K.sizedBoxW,
-        ],
-      ),
       body: Container(
         width: K.width,
         height: K.height,
@@ -52,10 +44,7 @@ class MissionScreen extends StatelessWidget {
             SizedBox(
               height: 150.h,
             ),
-            LoginCustomText(
-              size: 30.sp,
-              text: ' محتوي المهمه',
-            ),
+            LoginCustomText(size: 30.sp,text: ' محتوي المهمه',onPressed: (){Get.back();},isSetteingIcon:false),
             Padding(
               padding: EdgeInsets.only(top: 10.h, right: 0, left: 0, bottom: 0),
               child: Container(
@@ -70,7 +59,6 @@ class MissionScreen extends StatelessWidget {
                       topRight: Radius.circular(25),
                     )),
                 child: SingleChildScrollView(
-                  child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -119,7 +107,7 @@ class MissionScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
+
           ],
         ),
       ),
