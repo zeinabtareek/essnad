@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
-import '../../../constant.dart';
-import '../../../services/auth_services.dart';
+import '../../../constants/constant.dart';
+import '../../../services/auth/auth_services.dart';
 
 class RegisterController extends GetxController {
   final services=AuthServices();

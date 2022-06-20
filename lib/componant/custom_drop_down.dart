@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_dropdown/flutter_dropdown.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../constant.dart';
+import '../constants/constant.dart';
 import '../screens/add_new_mission_screen/controller/new_mission_controller.dart';
 import '../screens/mission_include_screen/controller/controller2.dart';
 

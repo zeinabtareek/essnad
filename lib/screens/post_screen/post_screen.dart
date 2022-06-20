@@ -1,34 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import '../../componant/appbar.dart';
 import '../../componant/add_photo.dart';
 import '../../componant/custom_container_text_field.dart';
 import '../../componant/login_button.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
 import '../../routes/app_route.dart';
+import '../add_violation_screen/controller/controller.dart';
+import '../add_violation_screen/widgets/share_to_other_media.dart';
 
 
 class PostScreen extends StatelessWidget {
-  const PostScreen({Key? key}) : super(key: key);
+  // final addViolationController = Get.put(AddViolationController());
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.transparent,
-      appBar: CustomAppBar(
-        icon: null,
-        isPassScreen: true,
-        actions: [
-          IconButton(onPressed: (){Get.back();}, icon: const Icon(Icons.arrow_forward_ios, color: K.whiteColor,),),
-
-          K.sizedBoxW,
-        ],
-      ),
-      body: Container(
+      backgroundColor: Colors.transparent, // remove color from appbar
+      body: GetBuilder<AddViolationController>(
+        init :AddViolationController(),
+    builder:(controller) => Container(
         width: K.width,
         height: K.height,
         decoration: const BoxDecoration(
@@ -41,18 +37,15 @@ class PostScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: SingleChildScrollView(
-          child: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.end,
-            alignment: WrapAlignment.center,
-            children: [
+        child: Wrap(
+          crossAxisAlignment: WrapCrossAlignment.end,
+          alignment: WrapAlignment.end,
+          children: [
+          K.sizedBoxH,
               SizedBox(
                 height: 150.h,
               ),
-              LoginCustomText(
-                size: 30.sp,
-                text: 'اضافه خبر',
-              ),
+            LoginCustomText(size: 30.sp,text: ' ',onPressed: (){Get.back();},isSetteingIcon:false),
               K.sizedBoxH,
               Padding(
                 padding:
@@ -81,20 +74,63 @@ class PostScreen extends StatelessWidget {
                         K.sizedBoxH,
                           const postCustomTextFieldWidget(
                             height: 200,
-                          text: 'اضافه خبر ...',
+                          text: '....تفاصيل المهمه  ',
                         ),
                         K.sizedBoxH,
                         rectBorderWidget,
-                        Center(
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 40.h),
-                            child: LoginButton(
-                              onTap: () {
-                                Get.toNamed(AppRoutes.postScreen);
-                              },
-                              label: "اضافه",
+                        K.sizedBoxH,
+                        K.sizedBoxH,
+                        Container(
+                          width: K.width,
+                          height: 200,
+                          child: Stack(children: [
+                            Positioned(
+                              top:0,
+                              left: 0,
+                              right: 0,
+                              child:Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  LoginButton(
+                                    onTap: (){
+                                      Get.toNamed(AppRoutes.postScreen);
+                                    },
+                                    // onTap: ()async {
+                                    //   // return generateAndPrintArabicPdf( );
+                                    //   double pixelRatio = MediaQuery.of(context).devicePixelRatio;
+                                    //   final imageFile =  await controller.screenshotController.captureFromWidget( buildImageWidget(),pixelRatio: pixelRatio) ;
+                                    //   if(imageFile==null) {
+                                    //     Get.snackbar('Error', 'during downloading ', snackPosition: SnackPosition.BOTTOM, duration: Duration(seconds: 2));
+                                    //     return ;
+                                    //   }
+                                    //   else{
+                                    //     Get.snackbar('Success', 'The Pdf is downloaded successfully ', snackPosition: SnackPosition.BOTTOM, duration: Duration(seconds: 2));
+                                    //     await controller.getPdf(imageFile);
+                                    //   }
+                                    //  },
+                                    customWidth: true,
+                                    width: 200,
+                                    label: "  التالي ",
+                                    // label: "  طباعه",
+                                  ),
+                                  IconButton(
+                                    onPressed: (){
+                                      controller.checkFun();
+                                    }
+                                    , icon:const Icon(FontAwesomeIcons. shareNodes ,
+                                      size: 30,
+                                      color: K.grayColor),),
+                                ],
+                              ),),
+                            AnimatedPositioned(
+                                left: 30,
+                                right: 30,
+                                bottom:controller.pinPillPosition,
+                                duration: Duration(milliseconds: 700),
+                                curve: Curves.easeIn,
+                                child: ShareWithMedia()
                             ),
-                          ),
+                          ],),
                         ),
                       ],
                     ),
@@ -104,7 +140,9 @@ class PostScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
+        ),
+
+
     );
   }
 }

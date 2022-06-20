@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../constant.dart';
+import '../constants/constant.dart';
 
 class Indicator extends StatelessWidget {
   const Indicator({Key? key, this.pageController, this.count})

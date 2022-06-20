@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../constant.dart';
+import '../constants/constant.dart';
 
 class OfferCards extends StatelessWidget {
   const OfferCards({Key? key, this.images, this.onTap,this.text}) : super(key: key);

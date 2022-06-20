@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../constant.dart';
+import '../constants/constant.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
@@ -13,7 +13,8 @@ class CustomTextField extends StatelessWidget {
       this.onchange,
        this.type,
       this.obSecure = false,
-        this.inputFormatters})
+        this.inputFormatters
+      })
       : super(key: key);
   final String? label;
   final IconData? icon;

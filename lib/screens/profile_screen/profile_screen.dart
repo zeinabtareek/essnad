@@ -5,7 +5,7 @@ import '../../componant/appbar.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
 import '../../componant/user_name_text.dart';
 import '../../componant/user_profile_image.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
 import '../../routes/app_route.dart';
 import 'controller.dart';
 

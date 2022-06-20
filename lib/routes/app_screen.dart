@@ -2,7 +2,7 @@ import 'package:b_app/screens/register_screen/register_screen.dart';
 import 'package:get/get.dart';
 
 import '../screens/add_new_mission_screen/add_new_mission_screen.dart';
-import '../screens/add_violation_screen/add_news.dart';
+import '../screens/add_violation_screen/widgets/add_news.dart';
 import '../screens/add_violation_screen/add_violation_screen.dart';
 import '../screens/change_password_screen/change_password_screen.dart';
 import '../screens/contact_us_screen/contact_us_screen.dart';
@@ -13,6 +13,7 @@ import '../screens/login_screen/login_screen.dart';
 import '../screens/map_screen/map_screen.dart';
 import '../screens/mission_include_screen/mission_screen.dart';
 import '../screens/otp_screen/otp_screen.dart';
+import '../screens/performance_screen/performance_screen.dart';
 import '../screens/post_screen/post_screen.dart';
 import '../screens/profile_screen/profile_screen.dart';
 import '../screens/register_screen/first_register_scree.dart';
@@ -35,7 +36,8 @@ class AppScreens {
     GetPage(name: AppRoutes.postScreen, page: () => PostScreen()),
     GetPage(name: AppRoutes.settingScreen, page: () => SettingScreen()),
     GetPage(name: AppRoutes.splashScreen, page: () => SplashScreen()),
-    GetPage(name: AppRoutes.tasksScreen, page: () => TasksScreen()),
+    GetPage(name: AppRoutes.performanceScreen, page: () => PerformanceScreen()),
+    GetPage(name: AppRoutes.tasksScreen, page: () => TasksScreen(addressName: '',)),
     GetPage(name: AppRoutes.firstRegisterScreen, page: () => FirstRegisterScreen()),
     GetPage(name: AppRoutes.tasksTypesScreen, page: () => TasksTypesScreen()),
     GetPage(name: AppRoutes.homeScreen, page: () => HomeScreen()),

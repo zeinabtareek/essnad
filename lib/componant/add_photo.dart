@@ -2,7 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../constant.dart';
+import '../constants/constant.dart';
 
 Widget get rectBorderWidget {
   return DottedBorder(

@@ -9,11 +9,12 @@ import '../../componant/offer_card.dart';
 import '../../componant/serch_text_field2.dart';
 import '../../componant/text_home_screen.dart';
 import '../../componant/user_profile_image.dart';
-import '../../constant.dart';
-import '../add_violation_screen/add_news.dart';
+import '../../constants/constant.dart';
+import '../add_violation_screen/widgets/add_news.dart';
 import '../add_violation_screen/add_violation_screen.dart';
 import '../home_screen/controller/home_screen_controller.dart';
 import '../mission_include_screen/mission_screen.dart';
+import '../performance_screen/performance_screen.dart';
 import '../tasks_screen/tasks_screen.dart';
 import 'controller/tasks_slider_controller.dart';
 
@@ -123,13 +124,15 @@ class TasksSliderScreen extends StatelessWidget {
                               if (index == 0) {
                                 Get.to(AddViolationScreen());}
                               else if (index == 1) {
-                                Get.to(MissionScreen());
+                                Get.to(PerformanceScreen());
                               } else if (index == 2) {
                                 Get.to(AddNewsScreen());
                               } else if (index == 3) {
-                                Get.to(TasksScreen());
+                                Get.to(TasksScreen(addressName:'المعالجه'));
                               }else if (index == 4) {
-                               Get.to(AddNewsScreen());
+                               // Get.to(AddNewsScreen());
+                                Get.to(TasksScreen(addressName:'المهام'));
+
                               }
                             },
                               color: _controller.colorsList[index], isHomeScreen: false,

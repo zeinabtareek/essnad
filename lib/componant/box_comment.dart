@@ -1,7 +1,7 @@
 import 'package:b_app/componant/user_profile_image.dart';
 import 'package:flutter/material.dart';
 
-import '../constant.dart';
+import '../constants/constant.dart';
 
 class CommentBox extends StatelessWidget {
   const CommentBox({

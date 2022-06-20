@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../constant.dart';
+import '../constants/constant.dart';
 import '../screens/home_screen/controller/home_screen_controller.dart';
 
 class CustomServicesCard extends StatelessWidget {
@@ -67,11 +67,11 @@ class CustomServicesCard extends StatelessWidget {
                   children: [
                     K.sizedBoxH,
                     SizedBox(
-                      width: 60.w,
-                      height: 60.h,
+                      width: 50.w,
+                      height: 50.h,
                       child: Image.asset(
                         image,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.contain,
                       ),
                     ),
                     K.sizedBoxH,

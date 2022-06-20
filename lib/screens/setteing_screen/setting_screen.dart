@@ -8,7 +8,7 @@ import '../../componant/custom_text_field.dart';
 import '../../componant/fixed_list_tile.dart';
 import '../../componant/login_button.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
 import '../../data.dart';
 import '../../routes/app_route.dart';
 import '../register_screen/controller/register_controller.dart';

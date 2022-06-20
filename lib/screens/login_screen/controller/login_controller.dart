@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/app_route.dart';
-import '../../../services/auth_services.dart';
+import '../../../services/auth/auth_services.dart';
 class LoginController extends GetxController {
    final services=AuthServices();
 

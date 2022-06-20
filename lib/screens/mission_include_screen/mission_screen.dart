@@ -12,7 +12,7 @@ import '../../componant/custom_drop_down.dart';
 import '../../componant/login_button.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
 import '../../componant/loging_componant/login_rich_text.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
 import '../../routes/app_route.dart';
  import 'controller/controller2.dart';
 
@@ -96,7 +96,6 @@ class MissionScreen extends StatelessWidget {
                             padding: EdgeInsets.only(top: 30.h),
                             child: LoginButton(
                               onTap: () {
-                                Get.toNamed(AppRoutes.postScreen);
                               },
                               label: "حفظ",
                             ),

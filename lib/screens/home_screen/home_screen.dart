@@ -1,5 +1,6 @@
-import 'package:b_app/screens/add_violation_screen/add_news.dart';
+import 'package:b_app/screens/add_violation_screen/widgets/add_news.dart';
 import 'package:b_app/screens/add_violation_screen/add_violation_screen.dart';
+import 'package:b_app/screens/map_screen/map_screen.dart';
 import 'package:b_app/screens/mission_include_screen/mission_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +11,7 @@ import '../../componant/loging_componant/login_custom_text.dart';
 import '../../componant/serch_text_field2.dart';
 import '../../componant/text_home_screen.dart';
 import '../../componant/user_profile_image.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
 import '../../routes/app_route.dart';
 import '../about_us_screen/about_us_screen.dart';
 import '../contact_us_screen/contact_us_screen.dart';
@@ -119,11 +120,10 @@ class HomeScreen extends StatelessWidget {
                           if (index == 0) {
                             Get.to(ContactUsScreen());
                           } else if (index == 1) {
-                            Get.to(MissionScreen());
+                            Get.to(MapScreen());
                           } else if (index == 2) {
                             Get.to(AboutUsScreen());
                           }
-
                         }, isHomeScreen: true,
                       ),
                     ),

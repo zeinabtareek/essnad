@@ -1,4 +1,5 @@
-import 'package:b_app/componant/custom_drop_down.dart';
+import 'package:b_app/screens/add_violation_screen/widgets/screen_shot_image.dart';
+import 'package:b_app/screens/add_violation_screen/widgets/share_to_other_media.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +7,7 @@ import 'package:get/get.dart';
 import '../../componant/custom_login_label.dart';
 import '../../componant/login_button.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
 import '../../routes/app_route.dart';
 import 'controller/controller.dart';
 
@@ -30,7 +31,9 @@ class _AddViolationScreenState extends State<AddViolationScreen> {
     return Scaffold(
       backgroundColor: K.whiteColor,
       body: SingleChildScrollView(
-        child: Container(
+        child:   GetBuilder<AddViolationController>(
+          init :AddViolationController(),
+          builder:(controller) => Container(
           decoration: const BoxDecoration(
               gradient: LinearGradient(
             begin: Alignment.bottomLeft,
@@ -67,22 +70,6 @@ class _AddViolationScreenState extends State<AddViolationScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        // ListView.builder(
-                        //   shrinkWrap: true,
-                        //   itemCount: controller.optionss.length,
-                        //     padding: EdgeInsets.zero,
-                        //     itemBuilder: (build, index){
-                        //     return
-                        // CustomDropDown(
-                        //       controller: controller,
-                        //       initialValue:  controller.optionss[index],
-                        //       onchange: (v) {
-                        //         controller.selectedOption.value = v!;
-                        //       },);
-                        //   }),
-                        //
-                        // Row(
-                        //   children: [
                         LoginLabel(
                           text: 'التصنيف الرئيسي',
                           widget: Image.asset(
@@ -197,8 +184,7 @@ class _AddViolationScreenState extends State<AddViolationScreen> {
                                                       : value1 == controller.mainCategories[5]
                                                           ? controller.index5
                                                               .map<DropdownMenuItem<String>>((value) => DropdownMenuItem<String>(
-                                                                    value: value, child: Text(value.toString()),)).toList()
-        : controller.index6
+                                                                    value: value, child: Text(value.toString()),)).toList() : controller.index6
                                                               .map<DropdownMenuItem<String>>((value) => DropdownMenuItem<String>(
                                                                     value:
                                                                     value,
@@ -222,12 +208,12 @@ class _AddViolationScreenState extends State<AddViolationScreen> {
                                   items: items,
                                   onChanged: (String? value) {},),),
                            LoginLabel(
-                          text:  'درجه الأهميه',
-                          widget: Image.asset(
+                            text:  'درجه الأهميه',
+                            widget: Image.asset(
                             "assets/images/edit.png", height: 20,
                             color: K.mainColor,
-                          ),
-                        ), Container(
+                          ),),
+                        Container(
                                 height: 70.h,
                                 width: K.width,
                                 margin: EdgeInsets.symmetric(horizontal: 0.0.w, vertical: 15.h),
@@ -241,35 +227,27 @@ class _AddViolationScreenState extends State<AddViolationScreen> {
                                     map((e) => DropdownMenuItem<String>(
                                     value: e, child: Text(e.toString()),)).toList(),
                                   onChanged: (value) {setState(() {this.value3 = value.toString();},);}),),
-                        Center(
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 30.h),
-                            child: LoginButton(
-                              onTap: () {
-                                controller.printDoc(value3,
-                                    'location',
-                                    'violationimage',
-                                    'additionalInfo',
-                                    value1,
-                                    value2
-                                    // value3, value3,value3,value3,value3,value3
-                                );
 
-                                // Get.toNamed(AppRoutes.postScreen);
-                              },
-                              label: "مشاركه او طباعه",
-                            ),
-                          ),
+                                LoginButton(
+                                  onTap: (){
+                                    Get.toNamed(AppRoutes.postScreen);
+                                  },
+                                  customWidth: true,
+                                  width: 200,
+                                  label: "  التالي ",
+                                ),
+
+
+                          ],),
+                        ),
                         ),
                       ],
                     ),
                   ),
                 ),
-              ],
           ),
-        ),
-      ),
+
     );
   }
   List<DropdownMenuItem<String>> items = [];
-}
+ }

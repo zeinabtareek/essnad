@@ -6,7 +6,7 @@ import '../../componant/login_button.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
 import '../../componant/loging_componant/otp_input.dart';
 import '../../componant/loging_componant/rich_text.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
 import '../../routes/app_route.dart';
 import '../login_screen/controller/login_controller.dart';
 import 'controller/otp_controller.dart';

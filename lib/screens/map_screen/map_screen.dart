@@ -7,7 +7,8 @@ import 'package:google_api_headers/google_api_headers.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
 
-import '../../constant.dart';
+import '../../componant/map_bottom_pill.dart';
+import '../../constants/constant.dart';
 import 'controller/map_controller.dart';
 
 class MapScreen extends StatefulWidget {
@@ -19,8 +20,7 @@ class _MapScreenState extends State<MapScreen> {
   // String googleApikey = "GOOGLE_MAP_API_KEY";
 
   GoogleMapController? mapController;
- //contrller for Google map
-  CameraPosition cameraPosition=CameraPosition(
+   CameraPosition cameraPosition=CameraPosition(
      target:controllerm.userLocation,
     zoom: 18
   );
@@ -32,8 +32,8 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Place Picker in Google Map"),
-          backgroundColor: Colors.deepPurpleAccent,
+          title: Text("حدد المكان علي الخريطه"),
+          backgroundColor: K.mainColor,
         ),
         body: Stack(
             children:[
@@ -64,7 +64,6 @@ class _MapScreenState extends State<MapScreen> {
                 child: Image.asset("assets/images/picker.png", width: 80,),
               ),
 
-              //search autoconplete input
               Positioned(  //search input bar
                   top:10,
                   child: InkWell(
@@ -121,7 +120,13 @@ class _MapScreenState extends State<MapScreen> {
                         ),
                       )
                   )
-              )
+              ),
+              Positioned(
+                  left: -20,
+                  right: -20,
+                  bottom: -15,
+                 child: MapBottomPill()
+              ),
 
 
             ]

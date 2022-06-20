@@ -7,7 +7,7 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../componant/custom_container_text_field.dart';
 import '../../componant/custom_login_label.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
 
 class ContactUsScreen extends StatelessWidget {
 

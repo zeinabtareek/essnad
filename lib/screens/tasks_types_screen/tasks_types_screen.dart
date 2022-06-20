@@ -6,7 +6,7 @@ import 'package:get/get.dart';
  import '../../componant/appbar.dart';
 import '../../componant/button_task.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
 import 'controller/tasks_types_controller.dart';
 
 class TasksTypesScreen extends StatelessWidget {

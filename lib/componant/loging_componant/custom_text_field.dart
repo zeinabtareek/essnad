@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../constant.dart';
+import '../../constants/constant.dart';
 
 
 class CustomTextField extends StatelessWidget {

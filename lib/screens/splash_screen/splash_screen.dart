@@ -5,7 +5,7 @@ import 'package:b_app/screens/register_screen/first_register_scree.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../componant/text_home_screen.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
 import '../home_screen/home_screen.dart';
 import '../login_screen/login_screen.dart';
 

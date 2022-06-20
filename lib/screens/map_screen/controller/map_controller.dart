@@ -6,6 +6,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class MapController extends GetxController{
   @override
     LatLng userLocation=LatLng(37.785834, -122.406417);
+  String ? administrativeArea='nfjbfhbhf';
+  String ? street='haram /egypt';
+  double distance = 200.0;
 
 
   void onInit() {

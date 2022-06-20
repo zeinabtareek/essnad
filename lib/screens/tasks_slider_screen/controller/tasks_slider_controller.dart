@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../../../constant.dart';
+import '../../../constants/constant.dart';
 
 class TasksSliderController extends GetxController{
   final boardController = PageController();

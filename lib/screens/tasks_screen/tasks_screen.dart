@@ -1,3 +1,4 @@
+import 'package:b_app/routes/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -8,13 +9,14 @@ import '../../componant/custom_text_field.dart';
 import '../../componant/fixed_list_tile.dart';
 import '../../componant/login_button.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
+import '../mission_include_screen/mission_screen.dart';
 import 'controller/tasks_controller.dart';
 
 class TasksScreen extends StatelessWidget {
-  TasksScreen({Key? key}) : super(key: key);
+  TasksScreen({Key? key, required this.addressName}) : super(key: key);
   final controller =Get.put(TasksController());
-
+   String addressName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +39,7 @@ class TasksScreen extends StatelessWidget {
             children: [
               K.sizedBoxH,
               SizedBox(height: 150.h,),
-              LoginCustomText(size: 30.sp, text: ' المعالجه',onPressed: (){Get.back();},isSetteingIcon:false),
+              LoginCustomText(size: 30.sp, text: addressName.toString(),onPressed: (){Get.back();},isSetteingIcon:false),
                Container(
                  margin: EdgeInsets.only(top: 26.h, right: 0, left: 0, bottom: 0),
                     padding: EdgeInsets.only(top: 40.h, right: 16.w, left: 16.w, bottom: 0),
@@ -86,18 +88,18 @@ class TasksScreen extends StatelessWidget {
                                                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                           crossAxisAlignment: CrossAxisAlignment.start,
                                                           children: [
-                                                            CustomTasksStatusButton(
-                                                                        text: ' تعديل',
-                                                                        image: 'assets/images/edit.png',
-                                                                        ),
+                                                       CustomTasksStatusButton(
+                                                                          text: ' تعديل',
+                                                                          image: 'assets/images/edit.png',
+                                                                          ),
+
+
                                                             Text('المزيد من التفاصيل'.trim(),style: TextStyle(color: K.mainColor,decoration: TextDecoration.underline),)
                                                           ],
                                                         ),
                                                     ),
                                                     Container(
                                                         width: constraints.maxWidth*0.6,
-                                                      // height:97.h,
-
                                                       child: Column(
                                                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                         crossAxisAlignment: CrossAxisAlignment.end,

@@ -12,6 +12,7 @@ class AppRoutes {
   static const tasksScreen = '/Tasks_Screen';
   static const firstRegisterScreen = '/first_Register_Screen';
   static const mapScreen = '/map_Screen';
+  static const performanceScreen = '/Performance_Screen';
   static const tasksTypesScreen = '/Tasks_Typing_Screen';
   static const contactUsScreen = '/Contact_Us_Screen';
   static const homeScreen = '/Home_Screen';

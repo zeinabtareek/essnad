@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../constant.dart';
+import '../constants/constant.dart';
 
 class UserNameText extends StatelessWidget {
     UserNameText({Key? key,required this.text}) : super(key: key);

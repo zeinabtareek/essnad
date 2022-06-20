@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import '../constant.dart';
+import '../constants/constant.dart';
 import '../helper/cache_helper.dart';
 import 'home_navigation_bar/home.dart';
 
@@ -16,8 +16,6 @@ dynamic token = CacheHelper.getData(key: 'token');
 startTimer(){
   Timer(Duration(seconds: 3), ()async
   {
-    // if( await services.auth.currentUser!=null){
-    // currentFirebaseUser=services.auth.currentUser;
     if(token != null){
       Get.offAll(const Home());
     }

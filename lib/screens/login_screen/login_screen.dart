@@ -6,7 +6,7 @@ import '../../componant/custom_text_field.dart';
 import '../../componant/login_button.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
 import '../../componant/loging_componant/rich_text.dart';
-import '../../constant.dart';
+import '../../constants/constant.dart';
 import '../../routes/app_route.dart';
 import 'controller/login_controller.dart';
 
