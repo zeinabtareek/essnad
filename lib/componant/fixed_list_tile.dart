@@ -23,7 +23,7 @@ class FixedListTile extends StatelessWidget {
                 color:K.grayColor.withOpacity(.5)),
           ),
         ),child:ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 30),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 0),
         onTap: onTap,
         leading: Icon(
           iconLeading!,

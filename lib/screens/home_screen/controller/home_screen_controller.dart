@@ -10,15 +10,13 @@ class HomeScreenController extends GetxController{
 
   List listData=
       [
-        'رصد المخالفه',
-        'متابعه المخالفه',
-        'خبر',
-
-
+        'تواصل معنا',
+        'النطاق الاشرافي',// جواها خريطه
+        'عن التطبيق',
       ];
   List listIcon=
-      ['assets/images/addpic.png',
+      ['assets/images/phoneIcon.png',
         'assets/images/second_icon.png',
-        'assets/images/second_icon.png',
+        'assets/images/tarck.png',
   ];
 }

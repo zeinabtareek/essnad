@@ -6,31 +6,27 @@ import '../constant.dart';
 
 class CustomTasksStatusButton extends StatelessWidget {
   String text ;
-  bool isFinished;
-    CustomTasksStatusButton({
+  String image;
+     CustomTasksStatusButton({
     Key? key,
    required this.text,
-   required this.isFinished,
-  }) : super(key: key);
+   required this.image,
+   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        child: Text(
-            text.toUpperCase(),
-            style: TextStyle(fontSize: 15.sp)
-        ),
-        style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-            backgroundColor: MaterialStateProperty.all<Color>(isFinished?K.mainColor:K.orangeColor),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    side: BorderSide(color: K.whiteColor)
-                )
-            )
-        ),
-        onPressed: () => null
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: RaisedButton.icon( elevation: 4.0,
+      icon: Image.asset( image,width: 20,height: 20,) ,
+      color: K.mainColor,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10)),
+
+          onPressed: (){},
+      label: Text(text,style: const TextStyle(
+      color: Colors.white, fontSize: 16.0))),
     );
+
   }
 }

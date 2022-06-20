@@ -1,117 +1,275 @@
-
-import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:b_app/componant/custom_drop_down.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dropdown/flutter_dropdown.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import '../../componant/appbar.dart';
-import '../../componant/add_photo.dart';
-import '../../componant/custom_container_text_field.dart';
-import '../../componant/custom_drop_down.dart';
-import '../../componant/home_story.dart';
-import '../../componant/indicatr.dart';
+import '../../componant/custom_login_label.dart';
 import '../../componant/login_button.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
 import '../../constant.dart';
 import '../../routes/app_route.dart';
- import '../mission_include_screen/controller/controller.dart';
+import 'controller/controller.dart';
 
-class AddViolationScreen extends StatelessWidget {
-  final controller = Get.put(MissionController());
+class AddViolationScreen extends StatefulWidget {
+  @override
+  State<AddViolationScreen> createState() => _AddViolationScreenState();
+}
+
+class _AddViolationScreenState extends State<AddViolationScreen> {
+  final controller = Get.put(AddViolationController());
 
   @override
+  int select = 0;
+  String value1 = 'التصنيف الرئيسي';
+  String value2 = 'التصنيف الفرعي';
+  String value3 = 'درجه الأهميه';
+
+  bool isSelected = false;
+
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      backgroundColor: Colors.transparent, // remove color from appbar
-      appBar: CustomAppBar(
-        icon: Icons.settings,
-        isPassScreen: true,
-        actions: [
-          IconButton(onPressed: (){Get.back();}, icon: const Icon(Icons.arrow_forward_ios, color: K.whiteColor,),),
-          K.sizedBoxW,
-        ],
-      ),
-      body: Container(
-        width: K.width,
-        height: K.height,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
+      backgroundColor: K.whiteColor,
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
             begin: Alignment.bottomLeft,
             end: Alignment.bottomRight,
             colors: [
               K.mainColor,
               K.secondaryColor,
             ],
-          ),
-        ),
-        child: SingleChildScrollView(
+          )),
           child: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.end,
-            alignment: WrapAlignment.center,
-            children: [
-              SizedBox(
-                height: 150.h,
-              ),
-              LoginCustomText(
-                size: 30.sp,
-                text: 'اضافه مخالفه',
-              ),
-              K.sizedBoxH,
-              Padding(
-                padding:
-                EdgeInsets.only(top: 10.h, right: 0, left: 0, bottom: 0),
-                child: Container(
-                  height: K.height,
-                  width: K.width,
-                  padding: EdgeInsets.only(
-                      top: 20.h, right: 30.w, left: 30.w, bottom: 0),
-                  decoration: const BoxDecoration(
-                      color: K.whiteColor,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25),
-                        topRight: Radius.circular(25),
-                      )),
-                  child: SingleChildScrollView(
+              crossAxisAlignment: WrapCrossAlignment.end,
+              alignment: WrapAlignment.center,
+              children: [
+                K.sizedBoxH,
+                SizedBox(
+                  height: 120.h,
+                ),
+                LoginCustomText(
+                    size: 30.sp,
+                    text: 'إضافه مخالفه',
+                    onPressed: () {
+                      Get.back();
+                    },
+                    isSetteingIcon: false),
+                Padding(
+                  padding:
+                      EdgeInsets.only(top: 26.h, right: 0, left: 0, bottom: 0),
+                  child: Container(
+                    width: K.width,
+                    padding: EdgeInsets.only(
+                        top: 40.h, right: 30.w, left: 30.w, bottom: 0),
+                    decoration: K.boxDecoration,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          height: 50.h,
-                          width: 50.w,
-                          child: Image.asset('assets/images/addpic.png'),
+                        // ListView.builder(
+                        //   shrinkWrap: true,
+                        //   itemCount: controller.optionss.length,
+                        //     padding: EdgeInsets.zero,
+                        //     itemBuilder: (build, index){
+                        //     return
+                        // CustomDropDown(
+                        //       controller: controller,
+                        //       initialValue:  controller.optionss[index],
+                        //       onchange: (v) {
+                        //         controller.selectedOption.value = v!;
+                        //       },);
+                        //   }),
+                        //
+                        // Row(
+                        //   children: [
+                        LoginLabel(
+                          text: 'التصنيف الرئيسي',
+                          widget: Image.asset(
+                            "assets/images/edit.png",
+                            height: 20,
+                            color: K.mainColor,
+                          ),
                         ),
-                        K.sizedBoxH,
-                        ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: controller.optionss.length,
-                            padding: EdgeInsets.zero,
-                            itemBuilder: (build, index){
-                            return  CustomDropDown(
-                              controller: controller,
-                              initialValue:  controller.optionss[index],
-                              onchange: (v) {
-                                controller.selectedOption.value = v!;
-                              },);
-                          }),
-                        const postCustomTextFieldWidget(
-                          height: 70,
-                          text: 'اسم مصدر المخالفه',
+                        Container(
+                          height: 70.h,
+                          width: K.width,
+                          margin: EdgeInsets.symmetric(
+                              horizontal: 0.0.w, vertical: 15.h),
+                          padding: K.fixedPadding,
+                          decoration: K.TextFieldboxDecoration,
+                          child: DropdownButton<String>(
+                            hint: Text(value1),
+                            underline: SizedBox(),
+                            isExpanded: true,
+                            items: controller.mainCategories
+                                .map<DropdownMenuItem<String>>(
+                                    (value) => DropdownMenuItem<String>(
+                                          value: value,
+                                          child: Text(value.toString()),
+                                        ))
+                                .toList(),
+                            onChanged: (value) {
+                              setState(
+                                () {
+                                  this.value1 = value.toString();
+                                  isSelected = true;
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                        LoginLabel(
+                          text: 'التصنيف الفرعي',
+                          widget: Image.asset(
+                            "assets/images/edit.png",
+                            height: 20,
+                            color: K.mainColor,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 22,
+                        ),
+                        isSelected == true
+                            ? Container(
+                                height: 70.h,
+                                width: K.width,
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: 0.0.w, vertical: 15.h),
+                                padding: K.fixedPadding,
+                                decoration: K.TextFieldboxDecoration,
+                                child: DropdownButton<String>(
+                                  hint: Text(value2),
+                                  underline: SizedBox(),
+                                  isExpanded: true,
+                                  items: value1 == controller.mainCategories[0]
+                                      ? controller.index0
+                                          .map<DropdownMenuItem<String>>((value) =>
+                                              DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value.toString()),
+                                              ))
+                                          .toList()
+                                      : value1 == controller.mainCategories[1]
+                                          ? controller.index1
+                                              .map<DropdownMenuItem<String>>((value) =>
+                                                  DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child:
+                                                        Text(value.toString()),
+                                                  ))
+                                              .toList()
+                                          : value1 ==
+                                                  controller.mainCategories[2]
+                                              ? controller.index2
+                                                  .map<DropdownMenuItem<String>>((value) =>
+                                                      DropdownMenuItem<String>(
+                                                        value: value,
+                                                        child: Text(
+                                                            value.toString()),
+                                                      ))
+                                                  .toList()
+                                              : value1 ==
+                                                      controller
+                                                          .mainCategories[3]
+                                                  ? controller.index3
+                                                      .map<DropdownMenuItem<String>>(
+                                                          (value) =>
+                                                              DropdownMenuItem<
+                                                                  String>(
+                                                                value: value,
+                                                                child: Text(value
+                                                                    .toString()),
+                                                              ))
+                                                      .toList()
+                                                  : value1 ==   controller   .mainCategories[4]
+                                                      ? controller.index4
+                                                          .map<DropdownMenuItem<String>>(
+                                                              (value) =>
+                                                                  DropdownMenuItem<String>(
+                                                                    value:
+                                                                        value,
+                                                                    child: Text(
+                                                                        value
+                                                                            .toString()),
+                                                                  ))
+                                                          .toList()
+                                                      : value1 == controller.mainCategories[5]
+                                                          ? controller.index5
+                                                              .map<DropdownMenuItem<String>>((value) => DropdownMenuItem<String>(
+                                                                    value: value, child: Text(value.toString()),)).toList()
+        : controller.index6
+                                                              .map<DropdownMenuItem<String>>((value) => DropdownMenuItem<String>(
+                                                                    value:
+                                                                    value,
+                                                                    child: Text(
+                                                                        value
+                                                                            .toString()),
+                                                                  ))
+                                                              .toList(),
+                                     onChanged: (value) {setState(() {this.value2 = value.toString();},);},),)
+                            : Container(
+                                height: 70.h,
+                                width: K.width,
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: 0.0.w, vertical: 15.h),
+                                padding: K.fixedPadding,
+                                decoration: K.TextFieldboxDecoration,
+                                child: DropdownButton(
+                                  hint: Text(value2),
+                                  underline: SizedBox(),
+                                  isExpanded: true,
+                                  items: items,
+                                  onChanged: (String? value) {},),),
+                           LoginLabel(
+                          text:  'درجه الأهميه',
+                          widget: Image.asset(
+                            "assets/images/edit.png", height: 20,
+                            color: K.mainColor,
+                          ),
+                        ), Container(
+                                height: 70.h,
+                                width: K.width,
+                                margin: EdgeInsets.symmetric(horizontal: 0.0.w, vertical: 15.h),
+                                padding: K.fixedPadding,
+                                decoration: K.TextFieldboxDecoration,
+                                child: DropdownButton(
+                                  hint: Text(value3),
+                                  underline: SizedBox(),
+                                  isExpanded: true,
+                                  items: controller.options.
+                                    map((e) => DropdownMenuItem<String>(
+                                    value: e, child: Text(e.toString()),)).toList(),
+                                  onChanged: (value) {setState(() {this.value3 = value.toString();},);}),),
+                        Center(
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 30.h),
+                            child: LoginButton(
+                              onTap: () {
+                                controller.printDoc(value3,
+                                    'location',
+                                    'violationimage',
+                                    'additionalInfo',
+                                    value1,
+                                    value2
+                                    // value3, value3,value3,value3,value3,value3
+                                );
+
+                                // Get.toNamed(AppRoutes.postScreen);
+                              },
+                              label: "مشاركه او طباعه",
+                            ),
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
           ),
         ),
       ),
     );
   }
+  List<DropdownMenuItem<String>> items = [];
 }

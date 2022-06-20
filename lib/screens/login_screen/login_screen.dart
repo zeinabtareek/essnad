@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../componant/custom_text_field.dart';
 import '../../componant/login_button.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
+import '../../componant/loging_componant/rich_text.dart';
 import '../../constant.dart';
 import '../../routes/app_route.dart';
 import 'controller/login_controller.dart';
@@ -35,63 +36,73 @@ class LoginScreen extends StatelessWidget {
               children: [
                 K.sizedBoxH,
                 SizedBox(height: 150.h,),
-                LoginCustomText(size: 30.sp, text: ' تسجيل الدخول',),
+                LoginCustomText(size: 30.sp, text: ' تسجيل الدخول',onPressed: (){Get.back();},),
                 Padding(
-                  padding: EdgeInsets.only(top: 70.h, right: 0, left: 0, bottom: 0),
+                  padding: EdgeInsets.only(top: 26.h, right: 0, left: 0, bottom: 0),
                   child: Container(
+                    width:K.width,
                     padding: EdgeInsets.only(top: 40.h, right: 30.w, left: 30.w, bottom: 0),
-                    decoration: const BoxDecoration(
-                        color: K.whiteColor,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(25),
-                          topRight: Radius.circular(25),
-                        )),
-                    child: Column(
+                    decoration:K.boxDecoration,
+                    child:  Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        LoginLabel(
+                         LoginLabel(
                           text: 'الاسم ',
-                          icon: Icons.person,
-                        ),
+                           widget: Image.asset("assets/images/personIcon.png",height: 20, ),
+                         ),
                         K.sizedBoxH,
                         CustomTextField(
-                          // label: "Email",
-                          type: TextInputType.emailAddress,
-                          icon: Icons.email_outlined,
+                           type: TextInputType.emailAddress,
                           obSecure: false,
                           onchange: (v) {
-                            // _controller.email.value = v;
+                            _controller.validEmail(v);
                             print(v);
-                          },
-                        ),
-                        K.sizedBoxH,
+                          },),
                         LoginLabel(
                           text: 'كلمه المرور',
-                          icon: Icons.lock,
+                          widget: Image.asset("assets/images/lockicon.png",height: 20,),
                         ),
                         K.sizedBoxH,
                         CustomTextField(
-                          // label: "Password",
-                          type: TextInputType.phone,
-                          icon: Icons.lock_outline_rounded,
                           obSecure: true,
-                          onchange: (v) {print(v);},
+                          type: TextInputType.visiblePassword,
+                          onchange: (v) {
+                            _controller.validPassword(v);
+                            print(v);
+                            },
+                        ),InkWell(
+                            child: const Text('نسيت كلمه المرور ؟',
+                          style: TextStyle(color: K.mainColor,height: 2),
+                            ),onTap: (){
+                              Get.toNamed(AppRoutes.changePassScreen);},
                         ),
                         Center(
                           child: Padding(
                             padding: EdgeInsets.only(top: 40.h),
                             child: LoginButton(
                               onTap: () {
-                                Get.toNamed(AppRoutes.home);
-                                // Get.toNamed(AppRoutes.postScreen);
-                              },
+                                // _controller.sendOTP();
+                                _controller.log();
+                             },
                               label: "تسجيل الدخول",
                             ),
-
+                          ),
+                        ),K.sizedBoxH,
+                        Center(
+                          child: FixedRichText(
+                            key: key,
+                            leftLabel: "  ليس لديك حساب ؟ ",
+                            rightLabel: "سجل الآن  ",
+                            isForgetPassScreen: true,
+                            onTab: () {
+                              Get.toNamed(AppRoutes.loginScreen);
+                            },
                           ),
                         ),
-                        K.sizedBoxH
                       ],
                     ),
+
                   ),
                 ),
               ],

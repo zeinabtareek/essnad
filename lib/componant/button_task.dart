@@ -29,20 +29,20 @@ class ButtonTasks extends StatelessWidget {
               f,s
             ],
           ),
-          // boxShadow: const [
-          //   BoxShadow(
-          //     color: Colors.grey,
-          //     spreadRadius: 1,
-          //     offset: Offset(2, 4),
-          //     blurRadius: 7,
-          //   ),
-          // ],
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.grey,
+              spreadRadius: 1,
+              offset: Offset(2, 4),
+              blurRadius: 7,
+            ),
+          ],
           border: Border.all(
             color: K.grayColor,
             style: BorderStyle.solid,
             width: 1.0,
           ),
-          borderRadius: BorderRadius.circular(0.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         child: Center(child: Text(text.toUpperCase(),style: TextStyle(fontWeight: FontWeight.w500,fontSize: 22.sp,),textDirection: TextDirection.rtl,)));
   }

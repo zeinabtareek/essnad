@@ -1,19 +1,70 @@
-//
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:fluttertoast/fluttertoast.dart';
-// import 'package:get/get.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
-//
-// import '../model/user_model.dart';
-// import '../screens/load_screen.dart';
-// import '../screens/register_screen/register_screen.dart';
-//
-// class AuthServices{
-//
-//   FirebaseAuth auth =FirebaseAuth.instance;
-//
-//
-//   Future register (UserModel userModel)async{
-//     await auth.createUserWithEmailAndPassword(email: userModel.email!.trim(), password: userModel.password!.trim());
-//   }
-// }
+import 'dart:convert';
+
+import 'package:get/get.dart';
+
+import '../data.dart';
+import '../data.dart';
+import '../helper/cache_helper.dart';
+import '../helper/dio_integration.dart';
+import '../model/TokenModel.dart';
+import '../routes/app_route.dart';
+
+class AuthServices {
+  final dio = DioUtilNew.dio;
+  // TokenModel tokenModel=TokenModel();
+  Data data =Data();
+  login(String email, String password) async {
+    try {
+      final response = await dio?.post('login', data: {
+        'email': email,
+        'password': password,
+      });
+      data= Data.fromJson(response!.data);
+      // tokenModel= TokenModel.fromJson(response!.data);
+      print(data);
+      await CacheHelper.saveData(key: 'token', value:data.token.toString());
+      print( await CacheHelper.getData(key: 'token'));
+        Get.snackbar('Success', 'you  are logged in', snackPosition: SnackPosition.BOTTOM, duration: Duration(seconds: 2));
+        Get.offAndToNamed(AppRoutes.home);
+    }
+     catch (e) {
+      Get.snackbar('Filed', 'you  are not accessed', snackPosition: SnackPosition.BOTTOM,
+          duration: const Duration(seconds: 2));
+      print(e);
+    }
+    DioUtilNew.setDioAgain();
+
+  }
+  signOut()async{
+    await CacheHelper.removeData(key: 'token');
+    await CacheHelper.clearData().then((value) =>
+        Get.offAllNamed(AppRoutes.loadingScreen)
+    );
+  }
+
+//not needed
+  register(String email, String password,String name, String mobile) async {
+    try {
+    final response = await dio?.post('register', data: {
+    'email': email,
+    'name': name,
+    'mobile': mobile,
+    'password': password,
+    });
+    data= Data.fromJson(response!.data);
+    print(data);
+    await CacheHelper.saveData(key: 'token', value:data.token.toString());
+    print( await CacheHelper.getData(key: 'token'));
+    Get.snackbar('Success', 'you  are registered ', snackPosition: SnackPosition.BOTTOM, duration: Duration(seconds: 2));
+    Get.offAndToNamed(AppRoutes.home);
+    }
+    catch (e) {
+    Get.snackbar('Filed', 'you  are not registered $e ', snackPosition: SnackPosition.BOTTOM,
+    duration: const Duration(seconds: 2));
+    }
+    DioUtilNew.setDioAgain();
+    }
+
+
+
+}

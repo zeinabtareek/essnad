@@ -1,17 +1,12 @@
+import 'package:b_app/routes/app_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
-import '../../componant/appbar.dart';
-import '../../componant/add_photo.dart';
+ import '../../componant/appbar.dart';
 import '../../componant/button_task.dart';
-import '../../componant/custom_container_text_field.dart';
-import '../../componant/login_button.dart';
 import '../../componant/loging_componant/login_custom_text.dart';
 import '../../constant.dart';
-import '../../routes/app_route.dart';
 import 'controller/tasks_types_controller.dart';
 
 class TasksTypesScreen extends StatelessWidget {
@@ -22,38 +17,18 @@ class TasksTypesScreen extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.transparent, // remove color from appbar
-      appBar: CustomAppBar(
-        icon: Icons.settings,
-        actions: [
-          IconButton(onPressed: (){Get.back();}, icon: const Icon(Icons.arrow_forward_ios, color: K.whiteColor,),),
-        ],
-      ),
       body: Container(
         width: K.width,
         height: K.height,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              K.mainColor,
-              K.secondaryColor,
-            ],
-          ),
-        ),
+        decoration: K.mainBoxDecoration,
         child: SingleChildScrollView(
           child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.end,
             alignment: WrapAlignment.center,
             children: [
-              SizedBox(
-                height: 150.h,
-              ),
-              LoginCustomText(
-                size: 30.sp,
-                text: 'المهام',
-              ),
               K.sizedBoxH,
+              SizedBox(height: 120.h,),
+              LoginCustomText(size: 30.sp, text: 'المهام',onPressed: (){Get.back();},isSetteingIcon:false),
               Padding(
                 padding:
                     EdgeInsets.only(top: 10.h, right: 0, left: 0, bottom: 0),
@@ -73,9 +48,7 @@ class TasksTypesScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        K.sizedBoxH,
-                        K.sizedBoxH,
-                        K.sizedBoxH,
+                        SizedBox(height: 40.h,),
                         ButtonTasks(
                           f: K.firstColorFirstButton,
                           s: K.secColorFirstButton,
@@ -93,9 +66,9 @@ class TasksTypesScreen extends StatelessWidget {
                           s: K.secColor3rdtButton,
                           text: controller.buttonLabel[2],
                         ),
-                        K.sizedBoxH,
                         /**indicator first try for the indicator**/
-                        K.sizedBoxH,
+                        SizedBox(height: 30.h,),
+
                         Stack(children: <Widget>[
                           Container(
                             width: 150,
@@ -132,8 +105,7 @@ class TasksTypesScreen extends StatelessWidget {
                             ),
                           ),
                         ]),
-                        K.sizedBoxH,
-                        K.sizedBoxH,
+                        SizedBox(height: 30.h,),
                         /**second try for the indicator**/
                         // CircularPercentIndicator(
                         //   radius: 130.0,
@@ -148,13 +120,15 @@ class TasksTypesScreen extends StatelessWidget {
                         //   backgroundColor: Colors.deepPurple,
                         //   progressColor: Colors.green,
                         // ),
-                        K.sizedBoxH,
-                        K.sizedBoxH,
-
-                        ButtonTasks(
-                          f: K.firstColorAddButton,
-                          s: K.secColorAddButton,
-                          text: controller.buttonLabel[3],
+                        SizedBox(height: 30.h,),
+                        InkWell(
+                          child: ButtonTasks(
+                            f: K.firstColorAddButton,
+                            s: K.secColorAddButton,
+                            text: controller.buttonLabel[3], ),
+                          onTap: (){
+                            Get.toNamed(AppRoutes.addNewMissionScreen);
+                          },
                         ),
                       ],
                     ),
