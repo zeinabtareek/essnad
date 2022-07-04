@@ -90,7 +90,7 @@ class ShareWithMedia extends StatelessWidget {
               },
               child: Column(
                 children: [
-                    Icon(FontAwesomeIcons.filePdf,
+                    const Icon(FontAwesomeIcons.filePdf,
                       size: 30, color: K.grayColor),
                   K.sizedBoxH,
                   const Text('حفظ '),

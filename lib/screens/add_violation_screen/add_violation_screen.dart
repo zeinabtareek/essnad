@@ -198,7 +198,8 @@ class _AddViolationScreenState extends State<AddViolationScreen> {
                                 height: 70.h,
                                 width: K.width,
                                 margin: EdgeInsets.symmetric(
-                                    horizontal: 0.0.w, vertical: 15.h),
+                                    horizontal: 0.0.w, vertical: 15.h
+                                ),
                                 padding: K.fixedPadding,
                                 decoration: K.TextFieldboxDecoration,
                                 child: DropdownButton(

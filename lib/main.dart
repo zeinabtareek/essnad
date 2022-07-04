@@ -1,6 +1,7 @@
 import 'package:b_app/helper/dio_integration.dart';
 import 'package:b_app/routes/app_route.dart';
 import 'package:b_app/routes/app_screen.dart';
+import 'package:b_app/screens/tasks_screen/tasks_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -60,8 +61,8 @@ class MyApp extends StatelessWidget {
               appBarTheme: const AppBarTheme(backgroundColor: K.kBackGroundColor),
               scaffoldBackgroundColor: K.kBackGroundColor,
             ),
-            // home: buildImageWidget(),
-            initialRoute: AppRoutes.home,
+            home: TasksScreen(addressName: 'vkmvkmv',),
+            // initialRoute: AppRoutes.home,
             getPages: AppScreens.screens,
           ),
         ),
