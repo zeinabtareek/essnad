@@ -228,7 +228,6 @@ class _AddViolationScreenState extends State<AddViolationScreen> {
                                     map((e) => DropdownMenuItem<String>(
                                     value: e, child: Text(e.toString()),)).toList(),
                                   onChanged: (value) {setState(() {this.value3 = value.toString();},);}),),
-
                                 LoginButton(
                                   onTap: (){
                                     Get.toNamed(AppRoutes.postScreen);

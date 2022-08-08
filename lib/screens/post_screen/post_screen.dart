@@ -108,6 +108,7 @@ class PostScreen extends StatelessWidget {
                                     //     await controller.getPdf(imageFile);
                                     //   }
                                     //  },
+
                                     customWidth: true,
                                     width: 200,
                                     label: "  التالي ",
@@ -117,7 +118,7 @@ class PostScreen extends StatelessWidget {
                                     onPressed: (){
                                       controller.checkFun();
                                     }
-                                    , icon:const Icon(FontAwesomeIcons. shareNodes ,
+                                    ,icon:const Icon(FontAwesomeIcons. shareNodes ,
                                       size: 30,
                                       color: K.grayColor),),
                                 ],

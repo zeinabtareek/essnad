@@ -28,7 +28,6 @@ class LoginController extends GetxController {
    @override
    void initState() {
       emailAuth  ;
-
       emailAuth.config(  remoteServerConfiguration);
    }
    var remoteServerConfiguration =
